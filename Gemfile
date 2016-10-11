@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# upload file
+gem 'carrierwave'
 # authentication
 gem 'devise'
 # bootstrap
