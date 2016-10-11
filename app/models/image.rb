@@ -4,8 +4,8 @@
 #
 #  id         :integer          not null, primary key
 #  image_url  :string(255)
-#  item_id    :integer
-#  item_type  :string(255)
+#  image_id   :integer
+#  image_type :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Campaigns</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>User</th>
+      <th>Bigest price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @campaigns.each do |campaign| %>
+      <tr>
+        <td><%= campaign.product.title %></td>
+        <td><%= campaign.product.description %></td>
+        <td><%= image_tag campaign.product.images.last.try(:image_url), height: 100, weight: 100 %>
+        </td>
+        <td><%= campaign.product.user_id %></td>
+        <!-- TODO -->
+        <td><%= campaign.product.user_id %></td>
+        <!-- ------------------------------- -->
+        <td><input type="number" value="0" class="bid_price form-control" /></td>
+        <td><button class='btn btn-success'> Bid </button></td>
+        <!-- TODO -->
+        <!-- ------------------------------- -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
