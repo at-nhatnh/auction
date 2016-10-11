@@ -12,9 +12,12 @@
 
 class Product < ApplicationRecord
   belongs_to :user
-  has_many :images, as: :image
+  has_many :images, as: :image, dependent: :destroy
+  has_many :campaign, dependent: :destroy
+
   accepts_nested_attributes_for :images
 
   DEFAULT_UPDATABLE_ATTRIBUTES = [:title, :description,
                                   images_attributes: [:id, :image_url]]
+
 end

@@ -22,6 +22,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :products
-  has_many :images, as: :image
+  has_many :products, dependent: :destroy
+  has_many :images, as: :image, dependent: :destroy
+  has_many :campaign, dependent: :destroy
 end

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011023254) do
+ActiveRecord::Schema.define(version: 20161011064419) do
+
+  create_table "campaigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "product_id"
+    t.integer  "user_id"
+    t.datetime "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_campaigns_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_campaigns_on_user_id", using: :btree
+  end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "image_url"
@@ -46,5 +56,7 @@ ActiveRecord::Schema.define(version: 20161011023254) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "campaigns", "products"
+  add_foreign_key "campaigns", "users"
   add_foreign_key "products", "users"
 end
