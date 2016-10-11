@@ -4,7 +4,11 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = current_user.products
+  end
+
+  def list_campaigns
+    @campaigns = Campaign.includes(:product).joins(:product).all
   end
 
   # GET /products/1
