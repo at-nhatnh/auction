@@ -11,6 +11,6 @@
 #
 
 class Image < ApplicationRecord
-  mount_uploader :image_url, ImageUploader
   belongs_to :image, polymorphic: :true
+  mount_uploader :image_url, ImageUploader
 end
