@@ -2,7 +2,7 @@
 
 <h1>Campaigns</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Product</th>
@@ -15,12 +15,11 @@
   <tbody>
     <% @campaigns.each do |campaign| %>
       <tr>
-        <td><%= campaign.product %></td>
-        <td><%= campaign.user %></td>
+        <td><%= campaign.product.title %></td>
+        <td><%= campaign.user.email %></td>
         <td><%= campaign.time %></td>
-        <td><%= link_to 'Show', campaign %></td>
-        <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
-        <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', campaign, class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Campaign', new_campaign_path %>
+<%= link_to 'New Campaign', new_campaign_path, class: 'btn btn-primary' %>

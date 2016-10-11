@@ -2,12 +2,12 @@
 
 <p>
   <strong>Product:</strong>
-  <%= @campaign.product %>
+  <%= @campaign.product.title %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @campaign.user %>
+  <%= @campaign.user.email %>
 </p>
 
 <p>
@@ -15,5 +15,4 @@
   <%= @campaign.time %>
 </p>
 
-<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
-<%= link_to 'Back', campaigns_path %>
+<%= link_to 'Back', campaigns_path, class: 'btn btn-primary' %>
