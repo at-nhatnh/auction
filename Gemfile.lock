@@ -201,7 +201,6 @@ DEPENDENCIES
   awesome_print
   better_errors
   bootstrap-sass (~> 3.3.1)
-  byebug
   carrierwave
   coffee-rails (~> 4.2)
   devise
