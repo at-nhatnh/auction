@@ -13,4 +13,5 @@
 class Campaign < ApplicationRecord
   belongs_to :product
   belongs_to :user
+  has_many :auction_store, dependent: :destroy
 end

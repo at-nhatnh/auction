@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  campaign: one
+  bid_price: 9.99
+
+two:
+  user: two
+  campaign: two
+  bid_price: 9.99

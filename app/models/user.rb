@@ -25,4 +25,5 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :images, as: :image, dependent: :destroy
   has_many :campaign, dependent: :destroy
+  has_many :auction_store, dependent: :destroy
 end
