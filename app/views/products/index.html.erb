@@ -20,7 +20,7 @@
         <td><%= product.description %></td>
         <td><%= image_tag product.images.last.try(:image_url), height: 100, weight: 100 %>
         </td>
-        <td><%= product.user_id %></td>
+        <td><%= product.user.email %></td>
         <td><%= link_to 'Show', product, class: 'btn btn-primary' %></td>
         <td><%= link_to 'Edit', edit_product_path(product), class: 'btn btn-success' %></td>
         <td><%= link_to 'Destroy', product, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %></td>
