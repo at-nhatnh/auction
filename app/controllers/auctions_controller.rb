@@ -1,4 +1,2 @@
-class AuctionController < ApplicationController
-  def list_auction
-  end
+class AuctionStoresController < ApplicationController
 end
