@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# redis
+gem 'redis'
 # upload file
 gem 'carrierwave'
 # authentication

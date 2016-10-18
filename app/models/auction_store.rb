@@ -13,4 +13,5 @@
 class AuctionStore < ApplicationRecord
   belongs_to :user
   belongs_to :campaign
+  after_create_commit { AuctionStoreBroadcastJob.perform_later self }
 end

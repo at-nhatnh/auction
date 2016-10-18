@@ -8,6 +8,7 @@
       <th>Product</th>
       <th>Description</th>
       <th>Image</th>
+      <th>User</th>
       <th>Bigest price</th>
       <th colspan="3"></th>
     </tr>
@@ -15,15 +16,16 @@
 
   <tbody>
     <% @campaigns.each do |campaign| %>
-      <tr campaign-id="<%= campaign.id %>">
+      <tr campaign-id="<%= campaign.id %>" class="campaign-<%= campaign.id %>">
         <td><%= campaign.product.title %></td>
         <td><%= campaign.product.description %></td>
         <td><%= image_tag campaign.product.images.last.try(:image_url), height: 100, weight: 100 %>
         </td>
-        <td class="price"></td>
+        <td class="user"><%= AuctionStore.where(campaign_id: campaign.id).last.user.email %></td>
+        <td class="price"><%= AuctionStore.where(campaign_id: campaign.id).last.bid_price %></td>
         <!-- ------------------------------- -->
-        <td><input type="number" value="0" class="bid_price form-control" /></td>
-        <td><button class='btn btn-success'> Bid </button></td>
+        <td><input type="text" class="bid_price form-control" /></td>
+        <td><button class='btn btn-success bid'> Bid </button></td>
         <!-- TODO -->
         <!-- ------------------------------- -->
       </tr>
