@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     @products = current_user.products
   end
 
-  def list_campaigns
+  def list_auctions
     @campaigns = Campaign.includes(:product).joins(:product).all
   end
 

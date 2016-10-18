@@ -1,12 +1,11 @@
 module ProductsHelper
-  def render_price_user(price, user, campaign)
-    if price.nil? || user.nil?
+  def render_price_user(campaign)
+    binding.pry
+    auction_store = AuctionStore.where(campaign_id: campaign.id)
+    if auction_store.nil?
       @user = ''
-      @price = campaign
-    else
-      @user = user
-      @price = price
+      @price = campaign.begin_price
+      render partial: 'products/the_campaign'
     end
-    render partial: 'the_auction'
   end
 end

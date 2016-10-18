@@ -16,15 +16,15 @@
 
   <tbody>
     <% @campaigns.each do |campaign| %>
-      <tr>
+      <tr campaign-id="<%= campaign.id %>" id="campaign-<%= campaign.id %>">
         <td><%= campaign.product.title %></td>
         <td><%= campaign.product.description %></td>
-        <td><%= image_tag campaign.product.images.last.try(:image_url), height: 100, weight: 100 %>
+        <td class="append"><%= image_tag campaign.product.images.last.try(:image_url), height: 100, weight: 100 %>
         </td>
-        <%= render_price_user(@the_auction.try(:price), @the_auction.try(:user).try(:email), campaign.begin_price) %>
+        <%= render_price_user(campaign) %>
         <!-- ------------------------------- -->
-        <td><input type="number" value="0" class="bid_price form-control" /></td>
-        <td><button class='btn btn-success'> Bid </button></td>
+        <td><input type='text' id="price"></td>
+        <td><input type='submit' class="click" value="Bid"></td>
         <!-- TODO -->
         <!-- ------------------------------- -->
       </tr>
