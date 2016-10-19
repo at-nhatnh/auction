@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20161018093437) do
   create_table "campaigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id"
     t.integer  "user_id"
-    t.integer  "time"
+    t.datetime "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_campaigns_on_product_id", using: :btree

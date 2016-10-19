@@ -14,5 +14,7 @@
 //= require bootstrap-sprockets
 //= require cable
 //= require jquery_ujs
+//= require jquery.countdown.min
 //= require turbolinks
 //= require_tree .
+

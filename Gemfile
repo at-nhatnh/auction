@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# countdown time
+gem "jquery-countdown-rails"
 # redis
 gem 'redis'
 # upload file
