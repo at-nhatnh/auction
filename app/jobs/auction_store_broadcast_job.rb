@@ -4,7 +4,8 @@ class AuctionStoreBroadcastJob < ApplicationJob
   def perform(auction)
     ActionCable.server.broadcast "auction_channel",
                                   auction: render_auction(auction),
-                                  campaign: auction.campaign.id
+                                  campaign: auction.campaign.id,
+                                  user: auction.user.email
   end
 
   private
@@ -13,7 +14,6 @@ class AuctionStoreBroadcastJob < ApplicationJob
     ApplicationController.render partial: 'auction_stores/auction',
                                  locals: {
                                     price: auction.bid_price,
-
                                  }
   end
 end
