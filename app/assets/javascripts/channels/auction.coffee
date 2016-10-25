@@ -19,9 +19,12 @@ $(document).ready ->
   $(".bid").click (e)->
     if confirm('Do you want bid')
       price = $(this).parent().parent().find('.bid_price')
-      bid_price = $(this).parent().parent().find('#price')
-      if (price.val() <= bid_price.text())
+      bid_price = $(this).parent().parent().find('.price')
+      time = $(this).parent().parent().find('.time').text()
+      if (+price.val() <= +bid_price.text())
         alert('Must larger bigest price')
+      else if (time == '00:00:00' || time == 'This offer has expired!')
+        alert('Time Over')
       else
         campaign_id = $(this).parent().parent().attr('campaign-id')
         App.auction.bid price.val(), campaign_id
