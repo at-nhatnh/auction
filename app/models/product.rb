@@ -20,4 +20,5 @@ class Product < ApplicationRecord
   DEFAULT_UPDATABLE_ATTRIBUTES = [:title, :description,
                                   images_attributes: [:id, :image_url]]
 
+  validates :description, :title, presence: true
 end

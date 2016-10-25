@@ -56,6 +56,6 @@ class CampaignsController < ApplicationController
     end
 
     def list_products
-      @products = current_user.products      
+      @products = current_user.products    
     end
 end

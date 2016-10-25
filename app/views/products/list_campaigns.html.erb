@@ -15,13 +15,13 @@
   </thead>
 
   <tbody>
-    <% @campaigns.each do |campaign| %>
+    <% @campaigns.each_with_index do |campaign, index| %>
       <tr campaign-id="<%= campaign.id %>" class="campaign-<%= campaign.id %>">
         <td><%= campaign.product.title %></td>
         <td><%= campaign.product.description %></td>
         <td><%= image_tag campaign.product.images.last.try(:image_url), height: 100, weight: 100 %>
         </td>
-        <td id="time"></td>
+        <td id="time-<%= index %>" class='time'></td>
 
         <input type="hidden" value="<%= Time.at(campaign.time) %>" id="time-campaign-<%= campaign.id %>">
         <td class="user"><%= AuctionStore.where(campaign_id: campaign.id).last.try(:user).try(:email) %></td>
@@ -32,24 +32,25 @@
         <!-- TODO -->
         <!-- ------------------------------- -->
       </tr>
-      <script type="text/javascript">
-        console.log($('input[type=hidden]').val())
-        $("#time").countdown($('input[type=hidden]').val(), function(event) {
-          $(this).text(
-            event.strftime('%H:%M:%S')
-          );
-        });
-        $('#time').countdown($('input[type=hidden]').val())
-          .on('update.countdown', function(event) {
-            var format = '%H:%M:%S';
-            $(this).html(event.strftime(format));
-          })
-          .on('finish.countdown', function(event) {
-            $(this).html('This offer has expired!')
-              .parent().addClass('disabled');
-          });
-      </script>
     <% end %>
   </tbody>
 </table>
+<script type="text/javascript">
+  $('tbody').find('tr').each(function(index){
+    $(this).find('#time-'+ index).countdown($(this).find('input[type=hidden]').val(), function(event) {
+      $(this).text(
+        event.strftime('%H:%M:%S')
+      );
+    });
+    $(this).find('#time-'+ index).countdown($(this).find('input[type=hidden]').val())
+      .on('update.countdown', function(event) {
+        var format = '%H:%M:%S';
+        $(this).html(event.strftime(format));
+      })
+      .on('finish.countdown', function(event) {
+        $(this).html('This offer has expired!')
+          .parent().addClass('disabled');
+      });
+  })
+</script>
 

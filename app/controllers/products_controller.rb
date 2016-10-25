@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def list_campaigns
-    @campaigns = Campaign.includes(:product).joins(:product).all
+    @campaigns = Campaign.includes(:product).joins(:product).order(:time).all
   end
 
   # GET /products/1
