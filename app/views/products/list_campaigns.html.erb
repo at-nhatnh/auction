@@ -27,7 +27,7 @@
         <td class="user"><%= AuctionStore.where(campaign_id: campaign.id).last.try(:user).try(:email) %></td>
         <td class="price"><%= AuctionStore.where(campaign_id: campaign.id).last.try(:bid_price) %></td>
         <!-- ------------------------------- -->
-        <td><input type="text" class="bid_price form-control" /></td>
+        <td><input type="number" class="bid_price form-control" /></td>
         <td><button class='btn btn-success bid'> Bid </button></td>
         <!-- TODO -->
         <!-- ------------------------------- -->
