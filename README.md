@@ -1,7 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Realtime auction website use ActionCable, ActionJob. 
 
 Things you may want to cover:
 
@@ -13,6 +12,8 @@ Things you may want to cover:
 
 * Config database.yml.
 
+* Run bunlde install
+
 * Run rails db:create and db:migrate
 
-* ...
+...
