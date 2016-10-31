@@ -10,21 +10,9 @@ Things you may want to cover:
 * Rails 5
 
 * Install redis-server
-  
-    sudo apt-get install redis-server
 
-* Configuration
+* Config database.yml.
 
-    Config database.yml.
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Run rails db:create and db:migrate
 
 * ...
