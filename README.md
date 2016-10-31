@@ -5,11 +5,17 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby 2.3.1
 
-* System dependencies
+* Rails 5
+
+* Install redis-server
+  
+    sudo apt-get install redis-server
 
 * Configuration
+
+    Config database.yml.
 
 * Database creation
 
